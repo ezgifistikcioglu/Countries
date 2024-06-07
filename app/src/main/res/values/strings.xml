@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Countries</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="go_to_detail_country_fragment">Hello this is detail country fragment</string>
 </resources>
