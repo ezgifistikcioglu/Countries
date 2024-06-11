@@ -96,6 +96,7 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:$glideVersion")
 
     implementation("androidx.preference:preference-ktx:$preferencesVersion")
+    implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
