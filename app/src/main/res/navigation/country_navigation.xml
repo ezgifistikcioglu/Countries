@@ -2,18 +2,18 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/country_navigation"
     app:startDestination="@id/feedCountryFragment">
 
     <fragment
         android:id="@+id/feedCountryFragment"
         android:name="com.ezgieren.countries.view.FeedCountryFragment"
-        android:label="fragment_feed_country"
-        tools:layout="@layout/fragment_feed_country" >
+        android:label="FeedCountryFragment"
+        tools:layout="@layout/fragment_feed_country">
         <action
             android:id="@+id/action_feedCountryFragment_to_detailCountryFragment"
             app:destination="@id/detailCountryFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/detailCountryFragment"
         android:name="com.ezgieren.countries.view.DetailCountryFragment"
