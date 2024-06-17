@@ -44,7 +44,6 @@ class FeedCountryFragment : Fragment() {
             viewModel.refreshData()
             binding.swipeRefresh.isRefreshing = false
         }
-
         observeLiveData()
     }
 
