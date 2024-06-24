@@ -6,6 +6,8 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.ezgieren.countries.databinding.ItemCountryRowBinding
 import com.ezgieren.countries.model.Country
+import com.ezgieren.countries.util.downloadFromUrl
+import com.ezgieren.countries.util.placeholderProgressBar
 import com.ezgieren.countries.view.FeedCountryFragmentDirections
 
 class CountryAdapter(private val countries: ArrayList<Country>) :
@@ -26,6 +28,10 @@ class CountryAdapter(private val countries: ArrayList<Country>) :
             val action = FeedCountryFragmentDirections.actionFeedCountryFragmentToDetailCountryFragment()
             it.findNavController().navigate(action)
         }
+        holder.binding.imageView.downloadFromUrl(
+            countries[position].countryImageUrl,
+            placeholderProgressBar(holder.itemView.context)
+        )
     }
 
     override fun getItemCount() = countries.size
