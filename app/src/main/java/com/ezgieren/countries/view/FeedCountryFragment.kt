@@ -30,7 +30,7 @@ class FeedCountryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this).get(FeedViewModel::class.java)
-        viewModel.refreshData()
+        viewModel.refreshFromAPI()
 
         countryAdapter = CountryAdapter(arrayListOf())
 
