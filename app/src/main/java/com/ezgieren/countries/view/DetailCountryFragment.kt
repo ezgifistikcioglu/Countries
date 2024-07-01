@@ -9,6 +9,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.ezgieren.countries.R
 import com.ezgieren.countries.databinding.FragmentDetailCountryBinding
+import com.ezgieren.countries.util.downloadFromUrl
+import com.ezgieren.countries.util.placeholderProgressBar
 import com.ezgieren.countries.viewmodel.CountryViewModel
 
 class DetailCountryFragment : Fragment() {
@@ -33,23 +35,30 @@ class DetailCountryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentDetailCountryBinding.bind(view)
 
-        viewModel = ViewModelProvider(this).get(CountryViewModel::class.java)
-        viewModel.getDataFromRoom()
-
         arguments?.let {
             countryUuid = DetailCountryFragmentArgs.fromBundle(it).countryUuid
         }
+
+        viewModel = ViewModelProvider(this).get(CountryViewModel::class.java)
+        viewModel.getDataFromRoom(countryUuid)
+
         observeLiveData(binding)
     }
 
     private fun observeLiveData(binding: FragmentDetailCountryBinding) {
-        viewModel.countryLiveData.observe(viewLifecycleOwner, Observer { countryLiveData->
+        viewModel.countryLiveData.observe(viewLifecycleOwner, Observer { countryLiveData ->
             countryLiveData?.let {
                 binding.countryName.text = countryLiveData.countryName
                 binding.countryRegion.text = countryLiveData.countryRegion
                 binding.countryCapital.text = countryLiveData.countryCapital
                 binding.countryCurrency.text = countryLiveData.countryCurrency
                 binding.countryLanguage.text = countryLiveData.countryLanguage
+                context?.let {
+                    binding.countryFlagImage.downloadFromUrl(
+                        countryLiveData.countryImageUrl,
+                        placeholderProgressBar(it)
+                    )
+                }
             }
         })
     }
