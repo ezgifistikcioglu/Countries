@@ -2,6 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="selectedCountryDetail"
+            type="com.ezgieren.countries.model.Country" />
+    </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,10 +19,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
+            android:contentDescription="@string/countryFlag"
+            android:downloadUrl="@{selectedCountryDetail.countryImageUrl}"
             android:minHeight="200dp"
             android:paddingTop="10dp"
-            android:scaleType="fitCenter">
-        </ImageView>
+            android:scaleType="fitCenter" />
 
         <TextView
             android:id="@+id/countryName"
@@ -25,10 +33,9 @@
             android:layout_centerHorizontal="true"
             android:layout_margin="10dp"
             android:fontFamily="sans-serif-black"
-            android:text="Country Name"
+            android:text="@{selectedCountryDetail.countryName}"
             android:textSize="20sp"
-            android:textStyle="bold">
-        </TextView>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/countryCapital"
@@ -38,9 +45,8 @@
             android:layout_centerHorizontal="true"
             android:layout_margin="10dp"
             android:fontFamily="sans-serif-condensed"
-            android:text="Country Capital"
-            android:textSize="17sp">
-        </TextView>
+            android:text="@{selectedCountryDetail.countryCapital}"
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/countryRegion"
@@ -50,9 +56,8 @@
             android:layout_centerHorizontal="true"
             android:layout_margin="10dp"
             android:fontFamily="sans-serif-condensed"
-            android:text="Country Region"
-            android:textSize="17sp">
-        </TextView>
+            android:text="@{selectedCountryDetail.countryRegion}"
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/countryCurrency"
@@ -62,9 +67,8 @@
             android:layout_centerHorizontal="true"
             android:layout_margin="10dp"
             android:fontFamily="sans-serif-condensed"
-            android:text="Country Currency"
-            android:textSize="17sp">
-        </TextView>
+            android:text="@{selectedCountryDetail.countryCurrency}"
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/countryLanguage"
@@ -74,8 +78,7 @@
             android:layout_centerHorizontal="true"
             android:layout_margin="10dp"
             android:fontFamily="sans-serif-condensed"
-            android:text="Country Language"
-            android:textSize="17sp">
-        </TextView>
+            android:text="@{selectedCountryDetail.countryLanguage}"
+            android:textSize="17sp" />
     </RelativeLayout>
 </layout>

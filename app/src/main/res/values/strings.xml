@@ -3,4 +3,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="go_to_detail_country_fragment">Hello this is detail country fragment</string>
     <string name="imageName">imageName</string>
+    <string name="countryFlag">country_flag</string>
 </resources>
